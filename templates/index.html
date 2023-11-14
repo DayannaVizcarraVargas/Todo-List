@@ -1,0 +1,65 @@
+<!-- templates/app.html -->
+<!DOCTYPE HTML>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>DBP</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelector('#new-task').onsubmit = (event) => {
+          event.preventDefault();
+
+          const cb = document.createElement("INPUT");
+          cb.setAttribute("type", "checkbox");
+
+          const li = document.createElement('li');
+          li.appendChild(cb);
+
+          const taskLabel = document.createElement('label');
+          taskLabel.textContent = document.querySelector('#task').value;
+          li.appendChild(taskLabel);
+
+          const deleteButton = document.createElement('button');
+          deleteButton.classList.add('delete-button');
+          deleteButton.innerHTML = 'Eliminar';
+          deleteButton.onclick = function () {
+            li.remove();
+          };
+          li.appendChild(deleteButton);
+
+          cb.addEventListener('change', () => {
+            if (cb.checked) {
+              taskLabel.style.textDecoration = 'line-through';
+            } else {
+              taskLabel.style.textDecoration = 'none';
+            }
+          });
+
+          document.querySelector('#tasks').append(li);
+
+          document.querySelector('#task').value = '';
+        };
+
+        document.querySelector('#select-all').onclick = () => {
+          const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+          checkboxes.forEach((checkbox) => {
+            checkbox.checked = true;
+          });
+        };
+      });
+    </script>
+  </head>
+  <body>
+    <p>Ciencias de la Computación</p>
+    <h1>Tareas</h1>
+    <form id="new-task">
+      <input id="task" autocomplete="off" autofocus placeholder="Nueva Tarea" type="text">
+      <input type="submit">
+    </form>
+    <button id="select-all">Seleccionar todo</button>
+    <ol id="tasks">
+      <!-- Lista de tareas -->
+    </ol>
+  </body>
+</html>
