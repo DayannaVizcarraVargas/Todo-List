@@ -1,101 +1,136 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 10px; 
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  h1 {
-    color: #333;
-    font-size: 28px;
-    font-family: 'Times New Roman', Times, serif;
-  }
-  
-  #new-task {
-    margin-bottom: 20px;
-  }
-  
-  #tasks {
-    list-style-type: none;
-    padding: 0;
-    width: 100%; 
-    max-width: 400px; 
-  }
-  
-  li {
-    background-color: #fff;
-    padding: 10px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  input[type="checkbox"] {
-    margin-right: 10px;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-  }
-  
-  input[type="checkbox"]:checked {
-    background-color: #28a745; 
-  }
-  
-  label {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 18px; 
-  }
-  
-  button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 3px;
-    cursor: pointer;
-    margin-bottom: 10px; 
-  }
-  
-  button:hover {
-    background-color: #0056b3; 
-  }
-  
-  input[type="submit"] {
-    background-color: #007bff; 
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  
-  input[type="submit"]:hover {
-    background-color: #0056b3; 
-  }
-  
-  .delete-button {
-    background-color: #dc3545; 
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  
-  .delete-button:hover {
-    background-color: #c82333; 
-  }
-  
-  #select-all {
-    background-color: #28a745; 
-  }
-  
-  #select-all:hover {
-    background-color: #218838; 
-  }
-  
+  font-family: 'Playpen Sans', cursive;
+  font-family: 'Righteous', sans-serif;  background-color: whitesmoke;
+  margin: 10px; 
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contenido{
+  font-family: 'Playpen Sans', cursive;
+  font-family: 'Righteous', sans-serif;
+  display: flex;
+ align-items: center;
+ flex-direction: column;
+ padding-top: 10px;
+ padding-left: 100px;
+ padding-right: 100px;
+ border-radius: 20px;
+ margin-top: 15px;
+  background-color: white;
+}
+p{
+  color: #333;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Playpen Sans', cursive;
+  font-family: 'Righteous', sans-serif;  background-color: whitesmoke;}
+h1 {
+color: #333;
+font-size: 28px;
+font-family: 'Playpen Sans', cursive;
+ font-family: 'Righteous', sans-serif;
+}
+
+img{
+  align-items: center;
+width: 250px;
+height: 200px;
+padding-bottom: 20px;
+}
+
+#new-task {
+margin-bottom: 20px;
+}
+
+#tasks {
+list-style-type: none;
+padding: 0;
+width: 100%; 
+max-width: 400px; 
+}
+.task{
+  border-radius: 20px;
+  padding: 5px;
+}
+li {
+background-color: #fff;
+padding: 10px;
+margin-bottom: 5px;
+border-radius: 5px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+input[type="checkbox"]{
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+input[type="checkbox"]:checked{
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+  cursor: pointer;
+  color: white;
+  appearance: none;
+  background-color: #28a745;
+}
+
+label {
+  font-family: 'Playpen Sans', cursive;
+  font-size: 14px; 
+}
+
+button {
+font-family: 'Playpen Sans', cursive;
+background-color: #007bff;
+color: #fff;
+border: none;
+padding: 5px 10px;
+border-radius: 3px;
+cursor: pointer;
+margin-bottom: 10px; 
+}
+
+button:hover {
+font-family: 'Playpen Sans', cursive;
+background-color: #0056b3; 
+}
+
+input[type="submit"] {
+font-family: 'Playpen Sans', cursive;
+background-color: #007bff; 
+color: #fff;
+border: none;
+padding: 5px 10px;
+border-radius: 3px;
+cursor: pointer;
+}
+
+input[type="submit"]:hover{
+background-color: #0056b3; 
+}
+
+.delete-button {
+font-family: 'Playpen Sans', cursive;
+background-color: #dc3545; 
+color: #fff;
+border: none;
+padding: 5px 10px;
+border-radius: 3px;
+cursor: pointer;
+}
+
+.delete-button:hover {
+background-color: #c82333; 
+}
+
+#select-all {
+background-color: #007bff; 
+}
+
+#select-all:hover {
+background-color:#007bff;
+}

@@ -4,62 +4,86 @@
   <head>
     <meta charset="utf-8" />
     <title>DBP</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        document.querySelector('#new-task').onsubmit = (event) => {
-          event.preventDefault();
-
-          const cb = document.createElement("INPUT");
-          cb.setAttribute("type", "checkbox");
-
-          const li = document.createElement('li');
-          li.appendChild(cb);
-
-          const taskLabel = document.createElement('label');
-          taskLabel.textContent = document.querySelector('#task').value;
-          li.appendChild(taskLabel);
-
-          const deleteButton = document.createElement('button');
-          deleteButton.classList.add('delete-button');
-          deleteButton.innerHTML = 'Eliminar';
-          deleteButton.onclick = function () {
-            li.remove();
-          };
-          li.appendChild(deleteButton);
-
-          cb.addEventListener('change', () => {
-            if (cb.checked) {
-              taskLabel.style.textDecoration = 'line-through';
-            } else {
-              taskLabel.style.textDecoration = 'none';
-            }
-          });
-
-          document.querySelector('#tasks').append(li);
-
-          document.querySelector('#task').value = '';
-        };
-
-        document.querySelector('#select-all').onclick = () => {
-          const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-          checkboxes.forEach((checkbox) => {
-            checkbox.checked = true;
-          });
-        };
-      });
-    </script>
+    <link rel="stylesheet" href="../static/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300;500;700&family=Righteous&display=swap" rel="stylesheet">
   </head>
   <body>
     <p>Ciencias de la Computación</p>
-    <h1>Tareas</h1>
-    <form id="new-task">
-      <input id="task" autocomplete="off" autofocus placeholder="Nueva Tarea" type="text">
-      <input type="submit">
-    </form>
-    <button id="select-all">Seleccionar todo</button>
-    <ol id="tasks">
-      <!-- Lista de tareas -->
-    </ol>
-  </body>
+    <div class="contenido">
+        <h1>Tareas</h1>
+        <img src="todolist.jpg" alt="">
+        <form id="new-task">
+        <input class="task" id="task" autocomplete="off" autofocus placeholder="Nueva Tarea" type="text">
+        <input type="submit">
+        </form>
+        <button id="select-all">Seleccionar todo</button>
+        <ol id="tasks">
+        <!-- Lista de tareas -->
+        </ol>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {(
+          document.querySelector('#new-task').onsubmit = (event) => {
+            event.preventDefault();
+      
+            const cb = document.createElement("INPUT");
+            cb.setAttribute("type", "checkbox");
+      
+            const li = document.createElement('li');
+            li.appendChild(cb);
+      
+            const taskLabel = document.createElement('label');
+            taskLabel.textContent = document.querySelector('#task').value;
+            li.appendChild(taskLabel);
+      
+            const deleteButton = document.createElement('button');
+            deleteButton.classList.add('delete-button');
+            deleteButton.innerHTML = 'Eliminar';
+            deleteButton.onclick = function () {
+              Swal.fire({
+                title: "¿Estás seguro de eliminar?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Sí, eliminar"
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  Swal.fire({
+                    title: "Eliminado",
+                    text: "Tu archivo fue eliminado.",
+                    icon: "success"
+                  });
+      
+                  li.remove();
+                }
+              });
+            };
+      
+            li.appendChild(deleteButton);
+            cb.addEventListener('change', () => {
+              if (cb.checked) {
+                taskLabel.style.textDecoration = 'line-through';
+              } else {
+                taskLabel.style.textDecoration = 'none';
+              }
+            });
+      
+            document.querySelector('#tasks').append(li);
+            document.querySelector('#task').value = '';
+          });
+      
+          document.querySelector('#select-all').onclick = () => {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach((checkbox) => {
+              checkbox.checked = true;
+            });
+          };
+        });
+      </script>
+ </body>
 </html>
+
+
